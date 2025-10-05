@@ -16,13 +16,26 @@ public class DeathUiController : MonoBehaviour
     [SerializeField] private Button nextButton;
 
     [SerializeField] private AbilityManager am;
-    public void Show(AbilityData next)
+    private bool isVisable;
+    private Action onContinue;
+
+
+    private void Update()
+    {
+        if(isVisable &&Input.GetKeyDown(KeyCode.V))
+        {
+            ContinueButton();
+        }
+    }
+    public void Show(AbilityData next,Action onContinue)
     {
         panel.SetActive(true);
+        isVisable = true;
         Time.timeScale = 0f;
 
         if (next != null)
         {
+            this.onContinue = onContinue;
             showImage.sprite = next.icon;
             abName.text = next.abilityName;
             desc.text = next.description;
@@ -35,6 +48,8 @@ public class DeathUiController : MonoBehaviour
     public void Hide()
     {
         panel.SetActive(false);
+        isVisable = false;
+
     }
 
     public void ContinueButton()
@@ -42,8 +57,7 @@ public class DeathUiController : MonoBehaviour
         Hide();
         Time.timeScale = 1.0f;
 
-        if (!am) am = FindObjectOfType<AbilityManager>(true);
-        am.ContinueAfterDeath();
+        onContinue?.Invoke();
     }
 
 }

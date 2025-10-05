@@ -185,6 +185,32 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+    private void FixedUpdate()
+    {
+        if (isDead) return;
+
+        if (wallJumpLocked)
+        {
+            rb.velocity = Vector2.Lerp(rb.velocity, wallJumpTargetVel, wallJumpLerp * Time.fixedDeltaTime);
+            wallJumpTimer -= Time.fixedDeltaTime;
+            if (wallJumpTimer < 0f) wallJumpLocked = false;
+            return;
+        }
+
+        if (isDashing) return;
+        if (isWallGrabing)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
+        }
+        if (isRoofCrawling)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
+        }
+
+        Move();
+
+    }
     private void CheckRoofGrab(bool grab)
     {
         if(isDead || isDashing)
@@ -258,31 +284,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (isDead) return;
 
-        if (wallJumpLocked)
-        {
-            rb.velocity = Vector2.Lerp(rb.velocity, wallJumpTargetVel, wallJumpLerp * Time.fixedDeltaTime);
-            wallJumpTimer -= Time.fixedDeltaTime;
-            if (wallJumpTimer < 0f) wallJumpLocked = false;
-            return;
-        }
-
-        if (isDashing) return;
-        if (isWallGrabing)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 0f);
-        }
-        if (isRoofCrawling)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 0f);
-        }
-
-        Move();
-
-    }
 
 
 

@@ -44,7 +44,14 @@ public class AbilityManager : MonoBehaviour
 
     public void HandleDeath()
     {
-        gameManager.MakeDeath();
+        int remaining = gameManager.MakeDeath();
+
+        if(remaining <= 0)
+        {
+            Time.timeScale = 1f;
+            gameManager.StartNewRun(this);
+            return;
+        }
 
         AbilityData abilityDataCurr = null;
         if (nextIndex < abilities.Count)
@@ -52,7 +59,7 @@ public class AbilityManager : MonoBehaviour
             abilityDataCurr = abilities[nextIndex];
         }
         var ui = FindObjectOfType<DeathUiController>(true);
-        ui.Show(abilityDataCurr);
+        ui.Show(abilityDataCurr,ContinueAfterDeath);
         
 
     }
