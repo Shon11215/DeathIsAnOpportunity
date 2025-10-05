@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   abilityName: SameStage
-  description: now when you died you will respawn at the same stage!
+  description: 'now when you died you will respawn at the same stage!
+
+    (at this
+    current stage this power does not work)'
   icon: {fileID: -1634123649, guid: 602b76730ce7c9d4c97a3710d992ee6f, type: 3}

@@ -30,12 +30,14 @@ public class DeathUiController : MonoBehaviour
     public void Show(AbilityData next,Action onContinue)
     {
         panel.SetActive(true);
+
         isVisable = true;
         Time.timeScale = 0f;
 
+        this.onContinue = onContinue;
+
         if (next != null)
         {
-            this.onContinue = onContinue;
             showImage.sprite = next.icon;
             abName.text = next.abilityName;
             desc.text = next.description;

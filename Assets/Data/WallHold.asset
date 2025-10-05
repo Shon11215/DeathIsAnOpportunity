@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   abilityName: Wall Hold
-  description: Now you can grab into walls
+  description: 'Now you can grab into walls
+
+    Hold X to grab into walls'
   icon: {fileID: 1125629799, guid: 77c3d23d6dfe7ee4abdff41b0a33758e, type: 3}

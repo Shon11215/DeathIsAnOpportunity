@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   abilityName: 
-  description: Now when you die you reaspawn 1 stage before where you died
+  description: 'Now when you die you reaspawn 1 stage before where you died
+
+
+    (at
+    this current stage this power does not work)'
   icon: {fileID: -298577892, guid: bf6638dbaac49b048aefe06283101304, type: 3}

@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 6
   abilityName: Roof crawl
-  description: Now you can walk on the roof!
+  description: 'Now you can walk on the roof!
+
+    Hold X to grab into a roof and
+    walk on it!'
   icon: {fileID: -825690721, guid: 77c3d23d6dfe7ee4abdff41b0a33758e, type: 3}

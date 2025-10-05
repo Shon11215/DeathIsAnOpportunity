@@ -20,4 +20,6 @@ public class LivesUi : MonoBehaviour
         if (livesTxt) livesTxt.text  = s;
         if (livestxt) livestxt.text = s;
     }
+
+
 }

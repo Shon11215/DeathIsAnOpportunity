@@ -46,7 +46,7 @@ public class AbilityManager : MonoBehaviour
     {
         int remaining = gameManager.MakeDeath();
 
-        if(remaining <= 0)
+        if(remaining < 0)
         {
             Time.timeScale = 1f;
             gameManager.StartNewRun(this);

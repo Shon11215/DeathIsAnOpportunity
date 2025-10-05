@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         if (!abilityManager)
             abilityManager = FindObjectOfType<AbilityManager>(true);
 
-        livesUi.UpdateLives(currLives);
+        if(livesUi) livesUi.UpdateLives(currLives);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -59,10 +59,10 @@ public class GameManager : MonoBehaviour
     public int MakeDeath()
     {
         CurrDeaths++;
-        currLives = Mathf.Max(0, currLives - 1);
+        currLives -= 1;
 
         if (livesUi)
-            livesUi.UpdateLives(currLives);
+            livesUi.UpdateLives(Mathf.Max(currLives,0));
 
         return currLives;
         
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
         CurrDeaths = 0;
         currLives = lives;
         abilityManager.ResetRun();
+        Time.timeScale = 1f;
         Respawn();
     }
 

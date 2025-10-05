@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   abilityName: Dash
-  description: From now on you can dash!
+  description: 'From now on you can dash!
+
+    Press C + direction to dash!'
   icon: {fileID: -1758310997, guid: 77c3d23d6dfe7ee4abdff41b0a33758e, type: 3}
